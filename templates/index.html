@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Clustering Penjualan Mobil Berdasarkan Tenaga Kuda dan Efisiensi Bahan Bakar</title>
+    <script src="{{url_for('static', filename='plotly-latest.min.js')}}"></script>
+  </head>
+  <body>
+    <div id="myDiv"></div>
+    <script>
+        var cluster_1 = {
+          x: {{cluster_1_x}},
+          y: {{cluster_1_y}},
+          mode: 'markers+text',
+          type: 'scatter',
+          name: 'CLUSTER #1',
+          //text: ['A-1', 'A-2', 'A-3', 'A-4', 'A-5'],
+          textposition: 'top center',
+          textfont: {
+            family:  'Raleway, sans-serif'
+          },
+          marker: { size: 10 }
+        };
+
+        var cluster_2 = {
+          x: {{cluster_2_x}},
+          y: {{cluster_2_y}},
+          mode: 'markers+text',
+          type: 'scatter',
+          name: 'CLUSTER #2',
+          //text: ['A-1', 'A-2', 'A-3', 'A-4', 'A-5'],
+          textposition: 'top center',
+          textfont: {
+            family:  'Raleway, sans-serif'
+          },
+          marker: { size: 10 }
+        };
+
+        var data = [ cluster_1, cluster_2 ];
+
+        var layout = {
+          xaxis: {
+            range: [ 0, 500 ]
+          },
+          yaxis: {
+            range: [0, 50]
+          },
+          legend: {
+            y: 0.5,
+            yref: 'paper',
+            font: {
+              family: 'Arial, sans-serif',
+              size: 20,
+              color: 'grey',
+            }
+          },
+          title:'Clustering Penjualan Mobil Berdasarkan Tenaga Kuda dan Efisiensi Bahan Bakar'
+        };
+
+        Plotly.newPlot('myDiv', data, layout);
+    </script>
+  </body>
+</html>
